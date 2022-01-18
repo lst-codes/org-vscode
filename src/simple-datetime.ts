@@ -119,7 +119,7 @@ export function currentDateTime(): ISimpleDateTime {
 
 export function modifyDate(dateString: string, action: string): string {
     const oldDate = parseDate(dateString);
-    const initialDateObject = datefns.parse(`${oldDate.year}-${oldDate.month}-${oldDate.day}`);
+    const initialDateObject = new Date(oldDate.year, oldDate.month, oldDate.day);
 
     const dateObject = (action === "UP") ? datefns.addDays(initialDateObject, 1): datefns.addDays(initialDateObject, -1);
 
